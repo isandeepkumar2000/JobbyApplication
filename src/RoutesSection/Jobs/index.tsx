@@ -19,7 +19,7 @@ import {
   SearchIconContainer,
   ShortBio,
   ShortMargin,
-} from "./stylecomponents";
+} from "./stylecomponets";
 
 export type JobsType = {
   id: string;
@@ -36,7 +36,7 @@ export type JobsType = {
   package_per_annum: string;
 };
 
-const jobDetailsLodingStatus = {
+const jobDetailsLoadingStatus = {
   success: "SUCCESS",
   loading: "LOADING",
   failure: "FAILURE",
@@ -51,7 +51,7 @@ const Jobs = () => {
     isProfileDetailsLoaded: false,
   });
   const [isJobDetailsLoaded, setJobDetailsLoadStatus] = useState(
-    jobDetailsLodingStatus.loading
+    jobDetailsLoadingStatus.loading
   );
   const [employmentType, setEmploymentType] = useState("");
   const [minimumPackage, setMinimumPackage] = useState("");
@@ -59,7 +59,7 @@ const Jobs = () => {
 
   useEffect(() => {
     async function fetchData() {
-      setJobDetailsLoadStatus(jobDetailsLodingStatus.loading);
+      setJobDetailsLoadStatus(jobDetailsLoadingStatus.loading);
 
       const jwtToken = Cookies.get("jobby_app_jwt_token");
       const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimumPackage}&search=${titleSearchInput}`;
@@ -86,9 +86,9 @@ const Jobs = () => {
           title: eachJob.title,
         }));
         setJobsList(updatedListData);
-        setJobDetailsLoadStatus(jobDetailsLodingStatus.success);
+        setJobDetailsLoadStatus(jobDetailsLoadingStatus.success);
       } else {
-        setJobDetailsLoadStatus(jobDetailsLodingStatus.failure);
+        setJobDetailsLoadStatus(jobDetailsLoadingStatus.failure);
       }
 
       const profileUrl = "https://apis.ccbp.in/profile";
@@ -246,9 +246,9 @@ const Jobs = () => {
 
   const getListOfJobs = () => {
     switch (isJobDetailsLoaded) {
-      case jobDetailsLodingStatus.loading:
+      case jobDetailsLoadingStatus.loading:
         return <ThreeDots color="white" height={100} width={100} />;
-      case jobDetailsLodingStatus.success:
+      case jobDetailsLoadingStatus.success:
         return (
           <ul>
             {jobsList.map((eachJob) => (
@@ -256,7 +256,7 @@ const Jobs = () => {
             ))}
           </ul>
         );
-      case jobDetailsLodingStatus.failure:
+      case jobDetailsLoadingStatus.failure:
         return <Redirect to="/login" />;
       default:
         return null;
