@@ -1,20 +1,22 @@
-![Jobby Login](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/8992eb27-8720-4e![JobbyHome](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/26ebbf69-af55-469a-a263-06413860f189)
-07-baf5-fb73c01dff97)
-![jobbyAppJobSuccessView](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/2db8dd89-90f3-4c1b-aec6-0801feb37ec6)
-![JobbyAppJobDeailsSuccssCase](h![JobbyAppFailureCaseDetails](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/8c156a4d-1b7e-4b53-884a-288376c9fb3b)
-![JobbyAppFailureCaseDetails](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/d357dd29-ede6-43d2-944e-856986a08dbb)
+
+![Jobby Login](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/6376be28-50d4-4568-8414-35da0f170c76)
 
 
 
+![JobbyHome](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/b3d27dff-c444-4ad7-b2e6-000bfcb908c8)
 
 
 
+![JobbyAppProfileFailure](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/f3336e9f-7e4c-43e5-9fd2-e96e38269b62)
 
 
+![jobbyAppJobSuccessView](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/857cdc11-f41b-44f2-8dfa-0522493b5ed7)
 
 
+![JobbyAppJobDeailsSuccssCase](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/8beb9309-ca3d-46e5-873e-6814911caa88)
 
 
+![JobbyAppFailureCaseDetails](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/ccb9068e-faed-4b9f-b1ff-ff2411e5a083)
 
 
 
