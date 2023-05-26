@@ -6,7 +6,7 @@ import {
   JobbyInfoHeading,
   JobbyInfoPara,
   JobbyMeetingConferenceImage,
-} from "./stylecomponents";
+} from "./stylecomponets";
 
 const Home = () => {
   const history = useHistory();
@@ -20,7 +20,7 @@ const Home = () => {
       <JobbyMeetingConferenceImage className="home-bg-container">
         <Header />
         <JobbyAppInfoContainer className="app-info-container">
-          <JobbyInfoHeading className="app-info-heaing">
+          <JobbyInfoHeading className="app-info-heading">
             Find The Job That Fits Your Life.
           </JobbyInfoHeading>
           <JobbyInfoPara className="app-info-para">

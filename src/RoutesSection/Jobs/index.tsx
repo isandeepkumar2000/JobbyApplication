@@ -17,11 +17,11 @@ import {
   SearchContainer,
   SearchEl,
   SearchIconContainer,
-  ShorMargin,
   ShortBio,
   ShortMargin,
-} from "./stylecomponents";
-import { JobbyFindJobButton } from "../Homes/stylecomponents";
+  ShortsMargin,
+} from "./stylecomponets";
+import { JobbyFindJobButton } from "../Homes/stylecomponets";
 
 export type JobsType = {
   id: string;
@@ -38,14 +38,14 @@ export type JobsType = {
   package_per_annum: string;
 };
 
-const jobDetailsLodingStatus = {
+const jobDetailsLoadingStatus = {
   success: "SUCCESS",
   loading: "LOADING",
   failure: "FAILURE",
 };
 
 const Jobs = () => {
-  const [jobslist, setJobsList] = useState([]);
+  const [jobsList, setJobsList] = useState([]);
   const [userInfo, setUserInfo] = useState({
     profileImgUrl: "",
     name: "",
@@ -53,7 +53,7 @@ const Jobs = () => {
     isProfileDetailsLoaded: false,
   });
   const [isJobDetailsLoaded, setJobDetailsLoadStatus] = useState(
-    jobDetailsLodingStatus.loading
+    jobDetailsLoadingStatus.loading
   );
   const [employmentType, setEmploymentType] = useState("");
   const [minimumPackage, setMinimumPackage] = useState("");
@@ -69,7 +69,7 @@ const Jobs = () => {
 
   useEffect(() => {
     async function fetchData() {
-      setJobDetailsLoadStatus(jobDetailsLodingStatus.loading);
+      setJobDetailsLoadStatus(jobDetailsLoadingStatus.loading);
 
       const jwtToken = Cookies.get("jobby_app_jwt_token");
       const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimumPackage}&search=${titleSearchInput}`;
@@ -96,9 +96,9 @@ const Jobs = () => {
           title: eachJob.title,
         }));
         setJobsList(updatedListData);
-        setJobDetailsLoadStatus(jobDetailsLodingStatus.success);
+        setJobDetailsLoadStatus(jobDetailsLoadingStatus.success);
       } else {
-        setJobDetailsLoadStatus(jobDetailsLodingStatus.failure);
+        setJobDetailsLoadStatus(jobDetailsLoadingStatus.failure);
       }
 
       const profileUrl = "https://apis.ccbp.in/profile";
@@ -125,14 +125,14 @@ const Jobs = () => {
     fetchData();
   }, [employmentType, minimumPackage, titleSearchInput]);
 
-  const onChangeofEmploymentType = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(event.target.value)
+  const onChangelogEmploymentType = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (employmentType !== "") {
       let t = employmentType.concat(",", e.target.value);
       setEmploymentType(t);
     } else {
       setEmploymentType(e.target.value);
-      // console.log(employmentType)
     }
   };
 
@@ -141,7 +141,6 @@ const Jobs = () => {
   };
 
   const onChangeOfSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(event.target.value)
     setTitleSearchInput(e.target.value);
   };
 
@@ -154,57 +153,57 @@ const Jobs = () => {
             Type of Employment
           </FilterHeading>
         </div>
-        <ShorMargin className="FullTime">
+        <ShortsMargin className="FullTime">
           <input
             type="checkbox"
             id="FULLTIME"
             name="fav_language"
             value="FULLTIME"
-            onChange={onChangeofEmploymentType}
+            onChange={onChangelogEmploymentType}
           />
           <FilterLabel htmlFor="FULLTIME" className="filter-label">
             Full Time
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin className="PartTime">
+        </ShortsMargin>
+        <ShortsMargin className="PartTime">
           <input
             type="checkbox"
             id="PARTTIME"
             name="fav_language"
             value="PARTTIME"
-            onChange={onChangeofEmploymentType}
+            onChange={onChangelogEmploymentType}
           />
           <FilterLabel htmlFor="PARTTIME" className="filter-label">
             Part Time
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin className="FreeLance">
+        </ShortsMargin>
+        <ShortsMargin className="FreeLance">
           <input
             type="checkbox"
             id="FREELANCE"
             name="fav_language"
             value="FREELANCE"
-            onChange={onChangeofEmploymentType}
+            onChange={onChangelogEmploymentType}
           />
           <FilterLabel htmlFor="FREELANCE" className="filter-label">
             Freelance
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin className="Internship">
+        </ShortsMargin>
+        <ShortsMargin className="Internship">
           <input
             type="checkbox"
             id="INTERNSHIP"
             name="fav_language"
             value="INTERNSHIP"
-            onChange={onChangeofEmploymentType}
+            onChange={onChangelogEmploymentType}
           />
           <FilterLabel htmlFor="INTERNSHIP" className="filter-label">
             Internship
           </FilterLabel>
-        </ShorMargin>
+        </ShortsMargin>
         <LineBrake className="line-break" />
         <FilterHeading className="filter-heading">Salary Range</FilterHeading>
-        <ShorMargin>
+        <ShortsMargin>
           <input
             type="radio"
             id="1000000"
@@ -215,8 +214,8 @@ const Jobs = () => {
           <FilterLabel htmlFor="1000000" className="filter-label">
             10 LPA and above
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin>
+        </ShortsMargin>
+        <ShortsMargin>
           <input
             type="radio"
             id="2000000"
@@ -228,8 +227,8 @@ const Jobs = () => {
           <FilterLabel htmlFor="2000000" className="filter-label">
             20 LPA and above
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin>
+        </ShortsMargin>
+        <ShortsMargin>
           <input
             type="radio"
             id="3000000"
@@ -240,8 +239,8 @@ const Jobs = () => {
           <FilterLabel htmlFor="3000000" className="filter-label">
             30 LPA and above
           </FilterLabel>
-        </ShorMargin>
-        <ShorMargin>
+        </ShortsMargin>
+        <ShortsMargin>
           <input
             type="radio"
             id="4000000"
@@ -252,24 +251,24 @@ const Jobs = () => {
           <FilterLabel htmlFor="4000000" className="filter-label">
             40 LPA and above
           </FilterLabel>
-        </ShorMargin>
+        </ShortsMargin>
       </>
     );
   };
 
   const getListOfJobs = () => {
     switch (isJobDetailsLoaded) {
-      case jobDetailsLodingStatus.loading:
+      case jobDetailsLoadingStatus.loading:
         return <ThreeDots color="white" height={100} width={100} />;
-      case jobDetailsLodingStatus.success:
+      case jobDetailsLoadingStatus.success:
         return (
           <ul>
-            {jobslist.map((eachJob) => (
+            {jobsList.map((eachJob) => (
               <JobItem jobDetails={eachJob} />
             ))}
           </ul>
         );
-      case jobDetailsLodingStatus.failure:
+      case jobDetailsLoadingStatus.failure:
         return <Redirect to="/login" />;
       default:
         return null;

@@ -106,6 +106,6 @@ export const ShortBio = styled.span`
 export const ShortMargin = styled.div`
   margin-top: 10px;
 `;
-export const ShorMargin = styled.div`
+export const ShortsMargin = styled.div`
   margin-top: 15px;
 `;

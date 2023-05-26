@@ -40,10 +40,10 @@ import {
   TitleHeading,
   TitleImageContainer,
   TitleRatingContainer,
-  Visita,
+  Vista,
   VisitEl,
-} from "./stylecomponents";
-import { JobTypeEl, LocationEl } from "../JobItem/stylecomponents";
+} from "./stylecomponets";
+import { JobTypeEl, LocationEl } from "../JobItem/stylecomponets";
 
 const isJobDetailsFetched = {
   success: "SUCCESS",
@@ -158,13 +158,13 @@ const JobDetailsItem = (props: any) => {
           </SectionsDescription>
           <VisitEl className="visit-el">
             Visit{" "}
-            <Visita
+            <Vista
               href={`${jobDetails.companyWebsiteUrl}`}
               rel="noreferrer"
               target="_blank"
             >
               <BsFillArrowUpRightSquareFill fill="blue" />
-            </Visita>
+            </Vista>
           </VisitEl>
         </DescriptionHeaderLinkContainer>
         <SectionsText className="sections-text">

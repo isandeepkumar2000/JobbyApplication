@@ -87,7 +87,7 @@ const Login = () => {
         <div>
           <PasswordInputSection
             type="password"
-            id="passwprd"
+            id="password"
             className="input-el"
             onChange={onChangeOfPassword}
             value={password}
@@ -111,7 +111,7 @@ const Login = () => {
           <form className="form-container" onSubmit={onFormSubmit}>
             <JobbyLogoImage
               src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-              alt="jobby-webstire-logo"
+              alt="jobby-website-logo"
               className="logo-img"
             />
             <div className="username-password-container">

@@ -5,7 +5,7 @@ import {
   NotFoundContainer,
   NotFoundInfoContainer,
   TextDanger,
-} from "./stylecomponents";
+} from "./stylecomponets";
 
 const NotFound = (props: any) => {
   const { history } = props;
@@ -15,7 +15,7 @@ const NotFound = (props: any) => {
   };
 
   return (
-    <NotFoundContainer className="not-found-contianer">
+    <NotFoundContainer className="not-found-container">
       <JobbyHeader />
       <NotFoundInfoContainer className="not-found-info-container">
         <TextDanger className="text-danger">404 - Page Not Found</TextDanger>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Home from "./RoutesSection/Homes";
 import JobDetailsItem from "./RoutesSection/JobItemDetailsRoute";
-import Jobs from "./RoutesSection/Jobss";
+import Jobs from "./RoutesSection/Jobs";
 import Login from "./RoutesSection/LoginRoute";
 import NotFound from "./RoutesSection/NotFoundRoute";
 import ProtectedRoute from "./RoutesSection/ProtectedRoute";

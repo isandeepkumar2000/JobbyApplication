@@ -6,7 +6,6 @@ import { MdOutlineLogout } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 import { BsBriefcaseFill } from "react-icons/bs";
 import {
-  HeaderGlobalStyle,
   HomeJobsIcon,
   JobbyHeaderButton,
   JobbyHeaderContainer,
@@ -16,7 +15,6 @@ import {
   NavContainer,
   NavLink,
 } from "./stylecomponets";
-// import { HeaderGlobalStyle } from "./stylecomponets";
 
 const Header = () => {
   const history = useHistory();
@@ -24,12 +22,11 @@ const Header = () => {
   const logoutFromApp = () => {
     Cookies.remove("jobby_app_jwt_token");
     history.replace("/");
-    // return <Redirect to="/login" />;
   };
 
   return (
     <>
-      {/* <HeaderGlobalStyle /> */}
+
       <JobbyHeaderContainer className="header-container">
         <Link to="/">
           <JobbyHeaderImage

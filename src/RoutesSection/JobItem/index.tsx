@@ -1,8 +1,7 @@
 import { MdLocationOn } from "react-icons/md";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { JobsType } from "../Jobss";
+import { JobsType } from "../Jobs";
 import {
   CompanyLogoImg,
   CustomLink,
@@ -20,8 +19,8 @@ import {
   RatingEl,
   Test,
   TitleJob,
-} from "./stylecomponents";
-import { TitleRatingContainer } from "../JobItemDetailsRoute/stylecomponents";
+} from "./stylecomponets";
+import { TitleRatingContainer } from "../JobItemDetailsRoute/stylecomponets";
 
 interface JobTypePp {
   jobDetails: JobsType;

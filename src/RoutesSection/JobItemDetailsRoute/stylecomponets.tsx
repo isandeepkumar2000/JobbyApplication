@@ -128,7 +128,7 @@ export const VisitEl = styled.span`
   font-weight: 600;
   font-family: initial, sans-serif;
 `;
-export const Visita = styled.a`
+export const Vista = styled.a`
   background-color: white;
 `;
 export const SectionsHeader = styled.span`
