@@ -93,61 +93,57 @@ const JobDetailsItem = (props: any) => {
     similarJobs: [],
   });
 
-  const JobItemsDetails = async () => {
-    const jwtToken = Cookies.get("jobby_app_jwt_token");
-    const url = `https://apis.ccbp.in/jobs/${id}`;
-    const options = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-    };
-    const response = await fetch(url, options);
-    const data = await response.json();
-
-    if (response.ok) {
-      setJobDetailsFetchedStatus("success");
-      const updatedData = {
-        companyLogoUrl: data.job_details.company_logo_url,
-        companyWebsiteUrl: data.job_details.company_website_url,
-        employmentType: data.job_details.employment_type,
-        id: data.job_details.id,
-        jobDescription: data.job_details.job_description,
-        lifeAtCompany: {
-          description: data.job_details.life_at_company.description,
-          imageUrl: data.job_details.life_at_company.image_url,
-        },
-        location: data.job_details.location,
-        packagePerAnnum: data.job_details.package_per_annum,
-        rating: data.job_details.rating,
-        skills: data.job_details.skills.map((eachSkill: any) => ({
-          name: eachSkill.name,
-          imageUrl: eachSkill.image_url,
-        })),
-        title: data.job_details.title,
-        similarJobs: data.similar_jobs.map((eachJob: any) => ({
-          companyLogoUrl: eachJob.company_logo_url,
-          employmentType: eachJob.employment_type,
-          id: eachJob.id,
-          jobDescription: eachJob.job_description,
-          rating: eachJob.rating,
-          title: eachJob.title,
-          location: eachJob.location,
-        })),
-      };
-      setJobDetails(updatedData);
-    } else {
-      setJobDetailsFetchedStatus("failure");
-    }
-  };
-
   useEffect(() => {
-    const fetchData = async () => {
-      await JobItemsDetails();
-    };
-    fetchData();
-  }, [JobItemsDetails]);
+    const JobItemsDetails = async () => {
+      const jwtToken = Cookies.get("jobby_app_jwt_token");
+      const url = `https://apis.ccbp.in/jobs/${id}`;
+      const options = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      };
+      const response = await fetch(url, options);
+      const data = await response.json();
 
+      if (response.ok) {
+        setJobDetailsFetchedStatus(isJobDetailsFetched.success);
+        const updatedData = {
+          companyLogoUrl: data.job_details.company_logo_url,
+          companyWebsiteUrl: data.job_details.company_website_url,
+          employmentType: data.job_details.employment_type,
+          id: data.job_details.id,
+          jobDescription: data.job_details.job_description,
+          lifeAtCompany: {
+            description: data.job_details.life_at_company.description,
+            imageUrl: data.job_details.life_at_company.image_url,
+          },
+          location: data.job_details.location,
+          packagePerAnnum: data.job_details.package_per_annum,
+          rating: data.job_details.rating,
+          skills: data.job_details.skills.map((eachSkill: any) => ({
+            name: eachSkill.name,
+            imageUrl: eachSkill.image_url,
+          })),
+          title: data.job_details.title,
+          similarJobs: data.similar_jobs.map((eachJob: any) => ({
+            companyLogoUrl: eachJob.company_logo_url,
+            employmentType: eachJob.employment_type,
+            id: eachJob.id,
+            jobDescription: eachJob.job_description,
+            rating: eachJob.rating,
+            title: eachJob.title,
+            location: eachJob.location,
+          })),
+        };
+        setJobDetails({ ...updatedData });
+      } else {
+        setJobDetailsFetchedStatus(isJobDetailsFetched.failure);
+      }
+    };
+
+    JobItemsDetails();
+  }, [id]);
   const getDescriptionSection = () => {
     return (
       <DescriptionContainer
