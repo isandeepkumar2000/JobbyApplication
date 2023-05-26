@@ -21,7 +21,6 @@ import {
   ShortMargin,
   ShortsMargin,
 } from "./stylecomponets";
-import { JobbyFindJobButton } from "../Homes/stylecomponets";
 
 export type JobsType = {
   id: string;
@@ -59,70 +58,58 @@ const Jobs = () => {
   const [minimumPackage, setMinimumPackage] = useState("");
   const [titleSearchInput, setTitleSearchInput] = useState("");
 
-  const OnFailure = () => {
-    return (
-      <div>
-        <JobbyFindJobButton>Retry</JobbyFindJobButton>
-      </div>
-    );
+  const Job = async () => {
+    const jwtToken = Cookies.get("jobby_app_jwt_token");
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimumPackage}&search=${titleSearchInput}`;
+    const options = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    const response = await fetch(url, options);
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+    if (response.ok === true) {
+      const updatedListData = data.jobs.map((eachJob: JobsType) => ({
+        companyLogoUrl: eachJob.company_logo_url,
+        employmentType: eachJob.employment_type,
+        id: eachJob.id,
+        jobDescription: eachJob.job_description,
+        location: eachJob.location,
+        packagePerAnnum: eachJob.package_per_annum,
+        rating: eachJob.rating,
+        title: eachJob.title,
+      }));
+      setJobsList(updatedListData);
+      setJobDetailsLoadStatus(jobDetailsLoadingStatus.success);
+    } else {
+      setJobDetailsLoadStatus(jobDetailsLoadingStatus.failure);
+    }
+
+    const profileUrl = "https://apis.ccbp.in/profile";
+    const profileRequestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    const profileInfoResponse = await fetch(profileUrl, profileRequestOptions);
+    const profileData = await profileInfoResponse.json();
+
+    setUserInfo({
+      profileImgUrl: profileData.profile_details.profile_image_url,
+      name: profileData.profile_details.name,
+      shortBio: profileData.profile_details.short_bio,
+      isProfileDetailsLoaded: true,
+    });
   };
 
   useEffect(() => {
-    async function fetchData() {
-      setJobDetailsLoadStatus(jobDetailsLoadingStatus.loading);
-
-      const jwtToken = Cookies.get("jobby_app_jwt_token");
-      const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimumPackage}&search=${titleSearchInput}`;
-      const options = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      };
-
-      const response = await fetch(url, options);
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      if (response.ok === true) {
-        const updatedListData = data.jobs.map((eachJob: JobsType) => ({
-          companyLogoUrl: eachJob.company_logo_url,
-          employmentType: eachJob.employment_type,
-          id: eachJob.id,
-          jobDescription: eachJob.job_description,
-          location: eachJob.location,
-          packagePerAnnum: eachJob.package_per_annum,
-          rating: eachJob.rating,
-          title: eachJob.title,
-        }));
-        setJobsList(updatedListData);
-        setJobDetailsLoadStatus(jobDetailsLoadingStatus.success);
-      } else {
-        setJobDetailsLoadStatus(jobDetailsLoadingStatus.failure);
-      }
-
-      const profileUrl = "https://apis.ccbp.in/profile";
-      const profileRequestOptions = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      };
-
-      const profileInfoResponse = await fetch(
-        profileUrl,
-        profileRequestOptions
-      );
-      const profileData = await profileInfoResponse.json();
-
-      setUserInfo({
-        profileImgUrl: profileData.profile_details.profile_image_url,
-        name: profileData.profile_details.name,
-        shortBio: profileData.profile_details.short_bio,
-        isProfileDetailsLoaded: true,
-      });
-    }
-    fetchData();
+    Job();
   }, [employmentType, minimumPackage, titleSearchInput]);
 
   const onChangelogEmploymentType = (

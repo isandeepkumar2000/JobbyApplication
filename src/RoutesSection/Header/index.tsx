@@ -1,4 +1,4 @@
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 
@@ -26,7 +26,6 @@ const Header = () => {
 
   return (
     <>
-
       <JobbyHeaderContainer className="header-container">
         <Link to="/">
           <JobbyHeaderImage

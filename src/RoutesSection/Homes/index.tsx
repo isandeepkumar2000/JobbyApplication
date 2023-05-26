@@ -12,7 +12,6 @@ const Home = () => {
   const history = useHistory();
   const onClickOfFindJobs = () => {
     history.push("/jobs");
-    // return <Redirect to="/jobs"/>
   };
 
   return (
