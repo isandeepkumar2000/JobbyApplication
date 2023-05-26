@@ -2,7 +2,7 @@
 07-baf5-fb73c01dff97)
 ![jobbyAppJobSuccessView](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/2db8dd89-90f3-4c1b-aec6-0801feb37ec6)
 ![JobbyAppJobDeailsSuccssCase](h![JobbyAppFailureCaseDetails](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/8c156a4d-1b7e-4b53-884a-288376c9fb3b)
-ttps://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/0c6d6e2c-e9c2-4822-a0ee-d3617ddc1a73)
+![JobbyAppFailureCaseDetails](https://github.com/isandeepkumar2000/JobbyApplication/assets/121090539/d357dd29-ede6-43d2-944e-856986a08dbb)
 
 
 
